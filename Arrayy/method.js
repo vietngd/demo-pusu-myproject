@@ -2,22 +2,22 @@ var courses = [
   {
     id: 1,
     name: "JavaScript",
-    coin: 0,
+    coin: 300,
   },
   {
     id: 2,
     name: "HTML & CSS",
-    coin: 0,
+    coin: 200,
   },
   {
     id: 3,
     name: "Python",
-    coin: 0,
+    coin: 300,
   },
   {
     id: 4,
     name: "React.JS",
-    coin: 0,
+    coin: 777,
   },
   {
     id: 5,
@@ -50,20 +50,72 @@ var courses = [
 // });
 // console.log(course);
 
-// // filter() // tra ve tat ca phan tu co diem chung
-// var listCourse = courses.filter(function (course, index) {
+// filter() // tra ve tat ca phan tu co diem chung
+// var listCourse = courses.filter(function (course) {
 //   return course.name == "React.JS";
 // });
 // console.log(listCourse);
 
 /**map() */
-function courseHandler(subject) {
-  console.log(" subject log:", subject);
-  //   return {
-  //     id: subject.id,
-  //     name: `Khoa hoc: ${subject.name}`,
-  //     coinText: `Gia: ${subject.coin}`,
-  //   };
+var newCourse = courses.map(function courseHandler(course) {
+  // Expresss Function
+  console.log(course);
+  return {
+    id: course.id,
+    name: `Khoa hoc: ${course.name}`,
+    coinText: `Gia: ${course.coin}`,
+  };
+  courseHandler();
+});
+// console.log(newCourse);
+
+function courseHandler(course) {
+  // Funcion Declaration
+  console.log(course);
+  return {
+    id: course.id,
+    name: `Khoa hoc: ${course.name}`,
+    coinText: `Gia: ${course.coin}`,
+  };
 }
-var newCourses = courses.map(courseHandler);
-console.log(" newCourses log: ", newCourses);
+
+var newCourse = courses.map(courseHandler);
+// console.log(newCourse);
+
+var newCourse = courses.map(function courseHandler(course) {
+  // console.log(course);
+  return {
+    id: course.id,
+    name: `Khoa hoc: ${course.name}`,
+    coinText: `Gia: ${course.coin}`,
+  };
+});
+// console.log(newCourse);
+
+/**reduce() */
+var total = 0;
+for (var course of courses) {
+  // console.log(course);
+
+  total += course.coin;
+}
+
+// /**Reduce() */
+
+// function coinHandler(accumulator, currentValue, currentIndex, originArray) {
+//   // accumulator: bien luu tru
+//   // currntValue: gia tri cua phan tu hien tai
+//   // currentIndex: chi muc cua phan tu hien tai
+//   // originArray: mang ma phan tu hien tai thuoc ve
+
+//   var total = accumulator + currentValue.coin;
+
+//   console.log(currentIndex);
+//   console.log(currentValue);
+//   console.log(total);
+//   return total;
+// }
+// var totalCoin = courses.reduce(coinHandler, 0);
+
+// coinHandler: bien luu tru
+// 0: gia tri khoi tao duoc gan cho accumulator
